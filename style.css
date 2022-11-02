@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*A medida da caixa será a partir da borda*/
+}
+
+ul{
+  list-style: none;
+}
+
+body{
+  background-color: #121214;
+  background-image: url(./assets/bg.svg);
+  background-position-x: center;
+  background-position-y: 55.6%;
+}
+
+#app{
+  width: fit-content;
+  margin: 52px auto;
+}
+
+header{
+  margin-bottom: 63px;
+}
+
+.card{
+  background: #1A1F1B;
+  border-bottom: 2px solid #047C3F;
+  border-radius: 6px;
+  padding: 32px 23px;
+  text-align: center;
+}
+
+body *{
+  font-family: 'Roboto', sans-serif;
+}
+
+.card h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  padding: 8px 16px;
+  border: 1px solid #746615;
+  border-radius: 6px;
+
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 53px;
+
+  color: #F7DD43;
+}
+
+.card h2 span{
+  color: #E1E1E6;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.card ul{
+  display: flex;
+  flex-direction: column; /*Coloca todos os itens flex em uma coluna*/
+  gap: 24px;
+
+  width: 270px;
+}
+
+.card ul li + li /*Pega apenas li que tenha li antes*/{
+  padding-top: 24px;
+  border-top: 1px solid #323238;
+}
+
+.card ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card ul li strong{
+  color: #E1E1E6;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 125%;
+}
