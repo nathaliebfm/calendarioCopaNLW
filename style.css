@@ -4,20 +4,43 @@
   box-sizing: border-box; /*A medida da caixa será a partir da borda*/
 }
 
+:root{
+  --card-color-primary: #F7DD43;
+  --card-title-border-color: #746615;
+  --card-bg-color: #1d1c19;
+  --bg: url(./assets/bg-yellow.svg);
+}
+
 ul{
   list-style: none;
 }
 
+body.blue{
+  --card-color-primary: #047C3F;
+  --card-title-border-color: #338AF3;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+
+body.green{
+  --card-color-primary: #047C3F;
+  --card-title-border-color: #F7DD43;
+  --card-bg-color: #1A1F1B;
+  --bg: url(./assets/bg-blue.svg);
+}
+
 body{
   background-color: #121214;
-  background-image: url(./assets/bg.svg);
-  background-position-x: center;
-  background-position-y: -715px;
+  background-image: var(--bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #app{
   width: fit-content;
-  margin: 52px auto;
+  margin: auto;
+  padding-top: 52px;
 }
 
 header{
@@ -27,16 +50,17 @@ header{
 
 #cards{
   display: flex;
-  flex-direction:row;
+  flex-direction:column;
   gap: 32px;
 }
 
 .card{
-  background: #1A1F1B;
-  border-bottom: 2px solid #047C3F;
-  border-radius: 6px;
+  background: var(--card-bg-color);
+  border-bottom: 2px solid var(--card-color-primary);
+  border-radius: 15px;
   padding: 32px 23px;
   text-align: center;
+  animation: appear 1s;
 }
 
 body *{
@@ -50,7 +74,7 @@ body *{
   gap: 16px;
 
   padding: 8px 16px;
-  border: 1px solid #746615;
+  border: 1px solid var(--card-title-border-color);
   border-radius: 6px;
 
   width: fit-content;
@@ -91,3 +115,40 @@ body *{
   font-size: 36px;
   line-height: 125%;
 }
+
+.card h2:hover{
+  transform: scale(1.1);
+}
+
+.card h2{
+  transition: transform 0.3s;
+}
+
+.card ul li strong:hover,
+.card ul li img:hover{
+  transform: scale(1.1);
+
+} /*Só vai ser acionado quando eu passar o mouse em cima*/ 
+
+.card ul li strong,
+.card ul li img{
+  transition: transform 0.3s;
+}
+
+@keyframes appear{
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+} /*Cria a regra de animação. 0 = sem opacidade e 1 = opacidade total*/
+
+@media (min-width: 700px) {
+  #cards{
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+} /*Isso irá fazer com que em telas a partir de 700px os cards fiquem em fileiras de 2*/
